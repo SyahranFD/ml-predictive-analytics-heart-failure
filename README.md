@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - Predictive Analyst Heart Failure - Syahran Fadhil Dafanindra
+# Laporan Proyek Machine Learning - Predictive Analytics Heart Failure - Syahran Fadhil Dafanindra
 
 ## Domain Proyek
 Domain yang dipilih dalam proyek ini adalah kesehatan, khususnya pada gagal jantung.
