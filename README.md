@@ -166,7 +166,11 @@ Berikut adalah penjelasan detail mengenai tahapan, parameter yang digunakan, ser
 
 ### Random Forest
 1. Tahapan dan Parameter:
-   - Inisialisasi Model: Model Random Forest diinisialisasi dengan parameter n_estimators=50 (jumlah pohon keputusan) dan max_depth=16 (kedalaman maksimum setiap pohon).
+   - Inisialisasi Model: Model Random Forest diinisialisasi dengan parameter:
+     - n_estimators=50: jumlah trees (pohon) di forest.
+     - max_depth=16: kedalaman atau panjang pohon. Ia merupakan ukuran seberapa banyak pohon dapat membelah (splitting).
+     - random_state=55: digunakan untuk mengontrol random number generator yang digunakan.
+     - n_jobs=-1: jumlah job (pekerjaan) yang digunakan secara paralel. n_jobs=-1 artinya semua proses berjalan secara paralel.
    - Pelatihan Model: Model dilatih menggunakan data latih X_train dan label y_train.
    - Prediksi: Setelah model dilatih, digunakan untuk memprediksi data uji X_test.
 
@@ -240,6 +244,36 @@ Berikut adalah penjelasan mengenai masing-masing metrik serta hasil evaluasi dar
 | **Macro Avg** | 0.87      | 0.85   | 0.86     | 184     |
 | **Weighted Avg** | 0.87      | 0.86   | 0.86     | 184     |
 
+## Dampak Model Terhadap Business Understanding
+1. Problem Statements:
+   - "Apa saja faktor-faktor klinis yang berpengaruh dalam memprediksi kemungkinan seseorang mengalami gagal jantung?"
+     - Model Random Forest berhasil mengidentifikasi faktor-faktor klinis penting melalui feature importance.
+     - Memberikan wawasan tentang kontribusi relatif setiap variabel dalam prediksi gagal jantung.
+   - "Bagaimana cara mengembangkan model machine learning yang dapat memprediksi risiko gagal jantung pada pasien dengan akurasi yang tinggi?"
+     - Model Random Forest mencapai akurasi 86.41%.
+     - Menunjukkan kemampuan yang baik dalam membedakan kasus positif dan negatif.
+   - "Seberapa efektif penggunaan algoritma machine learning dalam membantu proses diagnosis awal gagal jantung?"
+     - Model menunjukkan efektivitas tinggi dengan F1-Score 0.88 untuk kasus positif.
+     - Memberikan alat bantu yang reliable untuk screening awal.
+
+2. Goals:
+   - "Mengidentifikasi faktor-faktor klinis yang berpengaruh"
+     - Tercapai melalui analisis feature importance dari Random Forest.
+     - Memberikan pemahaman mendalam tentang kontribusi setiap variabel.
+   - "Mengembangkan model dengan akurasi tinggi"
+     - Tercapai dengan akurasi 86.41% pada Random Forest.
+     - Model menunjukkan keseimbangan baik antara precision dan recall.
+   - "Membandingkan dan mengevaluasi performa minimal 2 algoritma"
+     - Tercapai dengan membandingkan KNN (85.33%) dan Random Forest (86.41%).
+     - Evaluasi komprehensif menggunakan berbagai metrik.
+
+3. Solution Statements:
+   - "Mengembangkan model dengan membandingkan dua algoritma"
+     - Berhasil mengimplementasikan dan membandingkan KNN dan Random Forest.
+     - Random Forest menunjukkan performa lebih baik secara konsisten.
+   - "Mengukur performa model dengan berbagai metrik"
+     - Berhasil mengevaluasi model menggunakan accuracy, precision, recall, dan F1-score.
+     - Memberikan pemahaman menyeluruh tentang kinerja model.
 
 ## Referensi
 

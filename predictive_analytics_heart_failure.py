@@ -72,25 +72,36 @@ hearts = pd.read_csv('heart.csv')
     - Flat: flat
     - Down: downsloping
 12. HeartDisease: kelas output [1: heart disease, 0: Normal]
+
+## Menampilkan 5 baris pertama dalam dataframe
 """
 
-# menampilkan 5 baris pertama dalam dataframe
 hearts.head()
 
-# menampilkan struktur dari setiap fitur di dataframe
+"""## Menampilkan struktur dari setiap fitur di dataframe
+Dengan output yang terlihat, dapat disimpulkan bahwa dataset memiliki 6 fitur numerik dan 6 fitur kategorikal
+"""
+
 hearts.info()
 
-# menampilkan gambaran umum untuk fitur numerik
+"""## Menampilkan gambaran umum untuk fitur numerik"""
+
 hearts.describe()
 
-# mengecek missing value dari dataframe
+"""## Mengecek missing value dari dataframe
+Dengan semua fitur menunjukkan angka 0, dapat disimpulkan bahwa dataset tidak mengandung nilai yang hilang (missing values).
+"""
+
 hearts.isnull().sum()
 
-# memisahkan antara fitur numerik dengan categorical/object
+"""## Memisahkan antara fitur numerik dengan fitur kategorikal"""
+
 numerical_feature = ['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']
 categorical_feature = ['Sex', 'ChestPainType', 'FastingBS', 'RestingECG', 'ExerciseAngina', 'ST_Slope']
 
-"""## Visualisasi Categorical Features"""
+"""## Visualisasi Categorical Features
+Setelah menganalisa visualisasi dalam fitur kategorikal, terlihat bahwa fitur sex, ChestPainType, FastingBS, RestingECG, St_Slope memiliki data yang tidak seimbang. Namun, ketidakseimbangan tersebut masih dapat diterima karena mencerminkan populasi nyata dalam kasus penyakit jantung, sehingga tidak perlu preprocessing lebih lanjut.
+"""
 
 # menampilkan visualisasi distribusi setiap fitur kategorikal
 for feature in categorical_feature:
@@ -136,7 +147,7 @@ for feature in numerical_feature:
 
 ## Menangani Value Tidak Valid
 
-diketahui pada analisa data sebelumnya bahwa fitur RestingBP dan Cholesterol memiliki value 0 yang dimana data itu tidak valid
+Diketahui pada analisa data sebelumnya bahwa fitur RestingBP dan Cholesterol memiliki value 0 yang dimana data itu tidak valid
 """
 
 # Mengganti nilai 0 di RestingBP dan Cholesterol menjadi NaN
@@ -153,7 +164,9 @@ hearts['Cholesterol'].fillna(hearts['Cholesterol'].median(), inplace=True)
 # Menampilkan missing value dari semua fitur setelah penggantian
 print(hearts.isnull().sum())
 
-"""## Menangani Outlier"""
+"""## Menangani Outlier
+Setelah menganalisa menggunakan visualisasi boxplot, terlihat bahwa fitur RestingBP, Cholesterol, MaxHR, dan OldPeak memiliki outlier dalam datanya
+"""
 
 # Visualisasi Boxplot untuk mendeteksi outlier pada fitur numerik
 for feature in numerical_feature:
